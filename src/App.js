@@ -20,9 +20,8 @@ function App() {
     // If "todo_list" doesn't exist or is null, set an empty array
     if (!storedItems) {
       localStorage.setItem("todo_list", JSON.stringify([]));
-      setItems([]); // Also update state with empty array
+      setItems([]); 
     } else {
-      // If "todo_list" exists, parse and set the items
       setItems(JSON.parse(storedItems));
     }
   }, []);
@@ -30,7 +29,7 @@ function App() {
 
   const addItem = (item) => {
     const id = items.length ? items[items.length - 1].id +1 : 1;
-    // console.log("id:", id);
+   
     const addNewItem = {id, checked:false, item};
     const listItems = [...items, addNewItem];
     setItems(listItems);
@@ -53,7 +52,6 @@ const handleSubmit = (e) => {
   e.preventDefault(); 
   if(newItem.trim().length === 0)
   {
-    // console.log("Empty Value is Entered ");
     alert("Cannot Add an Empty Item");
     return; 
   }
